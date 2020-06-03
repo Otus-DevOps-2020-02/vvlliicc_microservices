@@ -1,4 +1,4 @@
-REPOSITORY                 TAG                 IMAGE ID            CREATED             SIZE
-vvlliicc/ubuntu-tmp-file   latest              4d0675de464f        5 minutes ago       125MB
-ubuntu                     16.04               005d2078bdfa        5 weeks ago         125MB
-hello-world                latest              bf756fb1ae65        5 months ago        13.3kB
+REPOSITORY                 TAG                 IMAGE ID            CREATED              SIZE
+vvlliicc/ubuntu-tmp-file   latest              5362c43e0ab5        About a minute ago   125MB
+ubuntu                     16.04               005d2078bdfa        5 weeks ago          125MB
+hello-world                latest              bf756fb1ae65        5 months ago         13.3kB
