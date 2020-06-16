@@ -11,7 +11,7 @@ services:
     build: ./ui
     image: ${USERNAME}/ui:2.0
     ports:
-      - $REDDIT_PORT:9292/tcp
+      - ${PORT_IN}:${PORT_OUT}/tcp
     networks:
       - front_net
   post:
