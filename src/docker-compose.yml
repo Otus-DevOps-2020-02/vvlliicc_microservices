@@ -18,17 +18,19 @@ services:
     build: ./post-py
     image: ${USERNAME}/post:1.0
     networks:
-        - back_net
-        - front_net
+      - back_net
+      - front_net
   comment:
     build: ./comment
     image: ${USERNAME}/comment:1.0
     networks:
-        - back_net
-        - front_net
-  volumes:
-    ost_db:
+      - front_net
+      - back_net
+volumes:
+    post_db:
 
-  networks:
-    back_net:
+networks:
     front_net:
+      external: true
+    back_net:
+      external: true
