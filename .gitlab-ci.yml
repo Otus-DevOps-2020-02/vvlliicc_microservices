@@ -1,4 +1,4 @@
-image: ruby:2.4.2
+image: image: ruby:2.4.2
 
 stages:
   - build
@@ -9,6 +9,8 @@ stages:
 
 variables:
   DATABASE_URL: 'mongodb://mongo/user_posts'
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_HOST: tcp://docker:2375
 
 before_script:
   - cd reddit
@@ -21,38 +23,43 @@ build_job:
 
 test_unit_job:
   stage: test
+  services:
+    - mongo:latest
   script:
-    - echo 'Testing 1'
+    - ruby simpletest.rb
 
 test_integration_job:
   stage: test
   script:
-    services:
-      - mongo:latest
-    script:
-      - ruby simpletest.rb
+    - echo 'Testing 2'
 
 deploy_dev_job:
   stage: review
+  when: manual
   script:
-    - echo 'Deploy'
+    - echo "Deploy to $CI_ENVIRONMENT_SLUG"
   environment:
-    name: dev
-    url: http://dev.example.com
+    name: branch/$CI_COMMIT_REF_NAME
+    url: http://$CI_ENVIRONMENT_SLUG.example.com
 
 staging:
   stage: stage
   when: manual
+  only:
+    - /^\d+\.\d+\.\d+/
   script:
-    - echo 'Deploy'
+    - echo 'Deploy staging'
   environment:
     name: stage
     url: https://beta.example.com
+
 production:
   stage: production
   when: manual
+  only:
+    - /^\d+\.\d+\.\d+/
   script:
-    - echo 'Deploy'
+    - echo 'Deploy production'
   environment:
     name: production
     url: https://example.com
