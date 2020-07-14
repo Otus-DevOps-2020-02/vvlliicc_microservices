@@ -7,18 +7,18 @@ services:
     networks:
       - back_net
   ui:
-    image: ${USER_NAME}/ui:latest
+    image: ${USERNAME}/ui:latest
     ports:
       - ${PORT_IN}:${PORT_OUT}/tcp
     networks:
       - front_net
   post:
-    image: ${USER_NAME}/post:latest
+    image: ${USERNAME}/post:latest
     networks:
       - back_net
       - front_net
   comment:
-    image: ${USER_NAME}/comment:latest
+    image: ${USERNAME}/comment:latest
     networks:
       - front_net
       - back_net
