@@ -1,6 +1,16 @@
 version: '3.3'
 services:
 
+  alertmanager:
+    image: ${USER_NAME}/alertmanager:latest
+    command:
+      - '--config.file=/etc/alertmanager/config.yml'
+    ports:
+      - '9093:9093'
+    networks:
+      - front_net
+      - back_net
+
   grafana:
     image: grafana/grafana:5.0.0
     volumes:
@@ -60,15 +70,6 @@ services:
       - front_net
       - back_net
 
-  alertmanager:
-    image: ${USER_NAME}/alertmanager:latest
-    command:
-      - '--config.file=/etc/alertmanager/config.yml'
-    ports:
-      - '9093:9093'
-    networks:
-      - front_net
-      - back_net
 volumes:
   grafana_data:
   prometheus_data:
