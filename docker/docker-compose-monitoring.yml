@@ -58,16 +58,17 @@ services:
       - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
     networks:
       - front_net
+      - back_net
 
   alertmanager:
     image: ${USER_NAME}/alertmanager:latest
-    networks:
-      - back_net
     command:
       - '--config.file=/etc/alertmanager/config.yml'
     ports:
-      - 9093:9093
-
+      - '9093:9093'
+    networks:
+      - front_net
+      - back_net
 volumes:
   grafana_data:
   prometheus_data:
