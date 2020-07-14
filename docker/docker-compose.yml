@@ -25,7 +25,6 @@ services:
 
 volumes:
     post_db:
-
 networks:
     front_net:
       external: true
