@@ -30,7 +30,7 @@ services:
       - back_net
 
   prometheus:
-    image: ${USERNAME}/prometheus:${VERSION_PROMETHEUS:-latest}
+    image: ${USER_NAME}/prometheus:${VERSION_PROMETHEUS:-latest}
     ports:
       - '9090:9090'
     volumes:
@@ -61,7 +61,7 @@ services:
       - front_net
 
   alertmanager:
-    image: ${USERNAME}/alertmanager:latest
+    image: ${USER_NAME}/alertmanager:latest
     command:
       - '--config.file=/etc/alertmanager/config.yml'
     ports:
