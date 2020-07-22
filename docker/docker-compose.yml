@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  mongo_db:
+  post_db:
     image: mongo:3.2
     environment:
       - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
