@@ -1,7 +1,7 @@
 version: '3'
 services:
   fluentd:
-    image: ${USERNAME}/fluentd
+    image: ${USERNAME}/fluentd:latest
     ports:
       - "24224:24224"
       - "24224:24224/udp"
