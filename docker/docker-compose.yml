@@ -44,6 +44,8 @@ services:
       - front_net
   comment:
     image: ${USER_NAME}/comment:latest
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       - front_net
       - back_net
