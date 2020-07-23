@@ -26,10 +26,11 @@ services:
         tag: service.ui
 
   post:
-    image: ${USER_NAME}/post
+    image: ${USER_NAME}/post:latest
     environment:
       - POST_DATABASE_HOST=post_db
       - POST_DATABASE=posts
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     depends_on:
       - post_db
     ports:
@@ -42,6 +43,7 @@ services:
     networks:
       - back_net
       - front_net
+
   comment:
     image: ${USER_NAME}/comment:latest
     environment:

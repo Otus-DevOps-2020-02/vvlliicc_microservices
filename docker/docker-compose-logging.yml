@@ -37,5 +37,7 @@ services:
       - "5601:5601"
 
 networks:
-  back_net:
   front_net:
+    external: true
+  back_net:
+    external: true
