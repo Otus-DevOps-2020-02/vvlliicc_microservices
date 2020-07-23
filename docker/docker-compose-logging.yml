@@ -1,6 +1,8 @@
 version: '3.3'
 services:
   zipkin:
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     image: openzipkin/zipkin
     ports:
       - "9411:9411"
@@ -10,6 +12,8 @@ services:
 
   fluentd:
     image: ${USERNAME}/fluentd
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     ports:
       - "24224:24224"
       - "24224:24224/udp"
@@ -21,11 +25,14 @@ services:
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - discovery.type=single-node
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     ports:
       - "9200:9200"
 
   kibana:
     image: kibana:7.7.1
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     ports:
       - "5601:5601"
 
