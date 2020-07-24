@@ -48,6 +48,14 @@ services:
     networks:
       - front_net
       - back_net
+  comment:
+#    build: ./comment
+    image: ${USERNAME}/comment:latest
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
+    networks:
+      - front_net
+      - back_net
 volumes:
   post_db:
 
