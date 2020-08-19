@@ -1,7 +1,7 @@
 name: comment
 version: 1.0.0
-description: OTUS reddit application Comment
+description: OTUS reddit application COMMENT
 maintainers:
-  - name: vvlliicc
-email: chvetnoy@gmail.com
+  - name: Someone
+    email: my@mail.com
 appVersion: 1.0
