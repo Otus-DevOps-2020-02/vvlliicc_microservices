@@ -1,2 +1,5 @@
 # vvlliicc_microservices
-vvlliicc microservices repository
+
+##Создание docker host
+##Создание своего образа
+##Работа с Docker Hub
