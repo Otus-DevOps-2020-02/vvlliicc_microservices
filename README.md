@@ -28,3 +28,10 @@ docker run -d --network=reddit \
 ```bash
  docker kill $(docker ps -q)
  ```
+
+## hw DOCKER-4
+- Изучили типы сетей поддерживаемых docker: none, bridge и host.
+-  Запустили  приложения в двух изолированных сетях.
+- Создали docker-compose.yml, для запуска и конфигурации  контейнеров.
+- Доработана конфигурация сети - front_net и back_net
+- Для формирования имени проекта можно использовать переменную окружения COMPOSE_PROJECT_NAME
