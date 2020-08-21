@@ -1,27 +1,19 @@
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: comment
-  labels:
-    app: reddit
-    component: comment
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: reddit
-      component: comment
-  template:
+    apiVersion: apps/v1beta2
+    kind: Deployment
     metadata:
-      name: comment
-      labels:
-        app: reddit
-        component: comment
+      name: comment-deployment
     spec:
-      containers:
-      - image: vvlliicc/comment
-        name: comment
-        env:
-        - name: COMMENT_DATABASE_HOST
-          value: comment-db
+      replicas: 1
+      selector:
+        matchLabels:
+          app: comment
+      template:
+        metadata:
+          name: comment
+          labels:
+            app: comment
+        spec:
+          containers:
+          - image: vvlliicc/post
+            name: comment

@@ -1,29 +1,19 @@
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: ui
-  labels:
-    app: reddit
-    component: ui
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: reddit
-      component: ui
-  template:
+    apiVersion: apps/v1beta2
+    kind: Deployment
     metadata:
-      name: ui-pod
-      labels:
-        app: reddit
-        component: ui
+      name: ui-deployment
     spec:
-      containers:
-      - image: vvlliicc/ui
-        name: ui
-        env:
-        - name: ENV
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
+      replicas: 1
+      selector:
+        matchLabels:
+          app: ui
+      template:
+        metadata:
+          name: ui
+          labels:
+            app: ui
+        spec:
+          containers:
+          - image: vvlliicc/post
+            name: ui
