@@ -9,23 +9,20 @@ services:
       - back_net
 
   fluentd:
-    image: ${USERNAME}/fluentd
+    image: ${USER_NAME}/fluentd
     ports:
       - "24224:24224"
       - "24224:24224/udp"
 
   elasticsearch:
-    image: elasticsearch:7.7.1
+    image: elasticsearch:7.4.0
     expose:
       - 9200
-    environment:
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - discovery.type=single-node
     ports:
       - "9200:9200"
 
   kibana:
-    image: kibana:7.7.1
+    image: kibana:7.4.0
     ports:
       - "5601:5601"
 
