@@ -35,6 +35,3 @@ docker run -d --network=reddit \
 - Создали docker-compose.yml, для запуска и конфигурации  контейнеров.
 - Доработана конфигурация сети - front_net и back_net
 - Для формирования имени проекта можно использовать переменную окружения COMPOSE_PROJECT_NAME
-
-
-
